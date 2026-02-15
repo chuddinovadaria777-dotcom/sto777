@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТО777 - Премиальный Автосервис | Горно-Алтайск</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C9A961;
+            --black: #0A0A0A;
+            --dark-gray: #1A1A1A;
+            --medium-gray: #2A2A2A;
+            --light-gray: #3A3A3A;
+            --silver: #B8B8B8;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            letter-spacing: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--silver);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.85)),
+                url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="none"/><path d="M0 100 L100 0" stroke="rgba(201,169,97,0.03)" stroke-width="0.5"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            padding: 0 2rem;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 9rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 20px;
+            line-height: 1;
+        }
+
+        .hero-number {
+            color: var(--gold);
+        }
+
+        .hero .subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--silver);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 4rem;
+            background: transparent;
+            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            text-decoration: none;
+            border: 2px solid var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: var(--black);
+        }
+
+        /* Divider */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--gold) 50%, 
+                transparent 100%);
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 8rem 4rem;
+            background: var(--black);
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            font-weight: 400;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 12px;
+        }
+
+        .section-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: var(--silver);
+            text-align: center;
+            margin-bottom: 6rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1px;
+            background: rgba(201, 169, 97, 0.1);
+        }
+
+        .service-card {
+            background: var(--dark-gray);
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            background: var(--medium-gray);
+            transform: translateY(-4px);
+        }
+
+        .service-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            min-height: 50px;
+        }
+
+        .service-card .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .service-number {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: rgba(201, 169, 97, 0.1);
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about {
+            position: relative;
+            background: 
+                linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)),
+                url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            padding: 8rem 4rem;
+            color: var(--white);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            letter-spacing: 12px;
+            font-weight: 400;
+        }
+
+        .about p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--silver);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            margin-top: 4rem;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .info-item {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem;
+            border-right: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-item:hover {
+            background: rgba(42, 42, 42, 0.9);
+        }
+
+        .info-item h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .info-item p {
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--white);
+            font-weight: 300;
+        }
+
+        /* Contact Section */
+        .contact {
+            position: relative;
+            max-width: 100%;
+            margin: 0;
+            padding: 10rem 4rem;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.92)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="none"/><path d="M0 100 L100 0" stroke="rgba(201,169,97,0.03)" stroke-width="0.5"/></svg>');
+            opacity: 0.5;
+        }
+
+        .contact > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            color: var(--white);
+            margin-bottom: 5rem;
+            letter-spacing: 12px;
+            font-weight: 400;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 0 auto;
+            max-width: 800px;
+            border: 1px solid rgba(201, 169, 97, 0.3);
+        }
+
+        .contact-card {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 4rem 4rem;
+            transition: all 0.4s ease;
+            border-right: 1px solid rgba(201, 169, 97, 0.3);
+            flex: 1;
+        }
+
+        .contact-card:last-child {
+            border-right: none;
+        }
+
+        .contact-card:hover {
+            background: rgba(42, 42, 42, 0.8);
+        }
+
+        .contact-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .contact-card a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .contact-card a:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        .contact-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin: 0;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--silver);
+            padding: 3rem 4rem;
+            text-align: center;
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        footer p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        /* Parallax effect */
+        .parallax {
+            background-attachment: fixed;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 6rem;
+                letter-spacing: 12px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+                letter-spacing: 8px;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+                letter-spacing: 3px;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+                letter-spacing: 8px;
+            }
+            
+            .services,
+            .contact,
+            .about {
+                padding: 4rem 2rem;
+            }
+            
+            .services-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                max-width: 100%;
+            }
+
+            .contact-card {
+                border-right: none;
+                padding: 3rem 2rem;
+            }
+            
+            .info-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+            }
+            
+            .info-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">СТО<span style="color: var(--white);">777</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero parallax">
+        <div class="hero-content">
+            <h1>СТО<span class="hero-number">777</span></h1>
+            <p class="subtitle">Премиальное Техническое Обслуживание</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="services" class="services fade-in">
+        <h2 class="section-title">Услуги</h2>
+        <p class="section-subtitle">Профессиональная диагностика и ремонт</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-number">01</span>
+                <h3>Компьютерная диагностика</h3>
+                <p class="price">1 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">02</span>
+                <h3>Чип-Тюнинг</h3>
+                <p class="price">от 4 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">03</span>
+                <h3>Снятие автосигнализаций</h3>
+                <p class="price">от 2 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">04</span>
+                <h3>Ремонт системы подушек безопасности</h3>
+                <p class="price">от 3 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">05</span>
+                <h3>Ремонт системы ABS</h3>
+                <p class="price">от 1 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">06</span>
+                <h3>Аварийное Вскрытие</h3>
+                <p class="price">от 2 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">07</span>
+                <h3>Ключ от домофона, дома</h3>
+                <p class="price">350 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">08</span>
+                <h3>Ключ от авто</h3>
+                <p class="price">от 1 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">09</span>
+                <h3>Ремонт Приборных Панелей</h3>
+                <p class="price">от 2 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">10</span>
+                <h3>Адаптация Электроники</h3>
+                <p class="price">от 2 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">11</span>
+                <h3>Прописка Форсунок</h3>
+                <p class="price">от 2 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">12</span>
+                <h3>Прописка Датчиков Давления в Шинах</h3>
+                <p class="price">от 2 000 ₽</p>
+            </div>
+            
+            <div class="service-card">
+                <span class="service-number">13</span>
+                <h3>Ремонт Автоэлектроники</h3>
+                <p class="price">Договорная</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="about" class="about parallax fade-in">
+        <div class="about-content">
+            <h2>О нас</h2>
+            <p>Профессиональная станция технического обслуживания в Горно-Алтайске</p>
+            <p>Специализируемся на диагностике, ремонте автоэлектроники и чип-тюнинге</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Адрес</h3>
+                    <p>Республика Алтай<br>г. Горно-Алтайск<br>ул. Набережная, 29</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Вс: 09:00 - 21:00<br>Без выходных</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>Рейтинг</h3>
+                    <p>4.4 из 5<br>43 отзыва</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact" class="contact fade-in">
+        <h2>Контакты</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Телефон</h3>
+                <a href="tel:+79039194545">+7 (903) 919-45-45</a>
+                <a href="tel:+79139985555">+7 (913) 998-55-55</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 СТО777 · Горно-Алтайск</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Service cards animation
+        const serviceCards = document.querySelectorAll('.service-card');
+        const servicesObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        serviceCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            servicesObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
